@@ -1,0 +1,23 @@
+{
+  "name": "eaatsm3",
+  "version": "0.0.3",
+  "main": "main.js",
+  "description": "Latest version of eaatsm",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "adbkit": "2.9.2",
+    "child_process": "1.0.2",
+    "electron": "1.6.2",
+    "electron-rebuild": "^1.5.11",
+    "get-date": "^1.0.2",
+    "jquery": "3.2.1",
+    "moment": "2.18.1",
+    "node-cmd": "3.0.0",
+    "shelljs": "0.7.7"
+  },
+  "dependencies": {
+    "concurrently": "^3.4.0"
+  }
+}
