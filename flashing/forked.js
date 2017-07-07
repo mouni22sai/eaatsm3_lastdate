@@ -13,27 +13,27 @@ process.on('message',function(msg){
         if(err){
           throw err;
         }else{
-          cmd.get('sudo fastboot -s '+fastbootnum.trim()+' flash boot boot.img',function(err,data){
+          cmd.get('fastboot -s '+fastbootnum.trim()+' flash boot boot.img',function(err,data){
             if(err){
               throw err;
             }else{
-              cmd.get('sudo fastboot -s '+fastbootnum.trim()+' flash modem NON-HLOS.bin',function(err,data){
+              cmd.get('fastboot -s '+fastbootnum.trim()+' flash modem NON-HLOS.bin',function(err,data){
                 if(err){
                   throw err;
                 }else{
-                  cmd.get('sudo fastboot -s '+fastbootnum.trim()+' flash userdata userdata.img',function(err,data){
+                  cmd.get('fastboot -s '+fastbootnum.trim()+' flash userdata userdata.img',function(err,data){
                     if(err){
                       throw err;
                     }else{
-                      cmd.get('sudo fastboot -s '+fastbootnum.trim()+' flash system system.img',function(err,data){
+                      cmd.get('fastboot -s '+fastbootnum.trim()+' flash system system.img',function(err,data){
                         if(err){
                           throw err;
                         }else{
-                          cmd.get('sudo fastboot -s '+fastbootnum.trim()+' flash persist persist.img',function(err,data){
+                          cmd.get('fastboot -s '+fastbootnum.trim()+' flash persist persist.img',function(err,data){
                             if(err){
                               throw err;
                             }else{
-                              cmd.get('sudo fastboot -s '+fastbootnum.trim()+' reboot',function(err,data){
+                              cmd.get('fastboot -s '+fastbootnum.trim()+' reboot',function(err,data){
                                 if(err){
                                   throw err;
                                 }else{

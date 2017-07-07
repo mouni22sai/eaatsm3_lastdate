@@ -1,5 +1,5 @@
-var shell = require('shelljs');
 var cmd = require('node-cmd');
+var shell = require('shelljs');
 var mkdirp = require('mkdirp');
 var dateTime = require('get-date');
 var phnum;
@@ -13,12 +13,12 @@ process.on('message',function(msg){
   phnum = msg.devId.toString();
   testType = msg.testType.toString();
   productName = msg.pname.toString();
-  shell.cd('/home/mounik/'+productName+'/'+testType);
+  shell.cd('/home/'+msg.sysname+'/'+productName+'/'+testType);
   mkdirp(date+'/'+phnum,function(err){
     if(err){
       throw err;
     }else{
-      shell.cd('/home/mounik/'+productName+'/'+testType+'/'+date+'/'+phnum);
+      shell.cd('/home/'+msg.sysname+'/'+productName+'/'+testType+'/'+date+'/'+phnum);
       cmd.run('adb -s '+phnum.toString()+' logcat -v time -b main > main.txt');
       cmd.run('adb -s '+phnum.toString()+' logcat -v time -b radio > radio.txt');
       cmd.run('adb -s '+phnum.toString()+' logcat -v time events > events.txt');

@@ -1,3 +1,12 @@
+var cmd = require('node-cmd');
+var username;
+cmd.get('whoami',function(err,data){
+  if(err){
+    throw err;
+  }else{
+    username = data.toString();
+  }
+});
 const {BrowserWindow,Tray}  = require('electron').remote;
 var url = require('url');
 var path = require('path');
@@ -11,7 +20,7 @@ $(document).ready(function(){
     winflashing = new BrowserWindow();
     winflashing.maximize();
    winflashing.loadURL(url.format({
-     pathname : path.join("/home/mounik/Workspace/eaatsm3/flashing","flashing.html"),
+     pathname : path.join("/home/"+username.trim()+"/Workspace/eaatsm3/flashing","flashing.html"),
      protocol : "file:",
      slashes : true
    }));
@@ -20,7 +29,7 @@ $(document).ready(function(){
     winstability = new BrowserWindow();
     winstability.maximize();
    winstability.loadURL(url.format({
-     pathname : path.join("/home/mounik/Workspace/eaatsm3/stability","stability.html"),
+     pathname : path.join("/home/"+username.trim()+"/Workspace/eaatsm3/stability","stability.html"),
      protocol : "file:",
      slashes : true
    }));
@@ -29,7 +38,7 @@ $(document).ready(function(){
     winmonkey = new BrowserWindow();
     winmonkey.maximize();
    winmonkey.loadURL(url.format({
-     pathname : path.join("/home/mounik/Workspace/eaatsm3/monkey","monkey.html"),
+     pathname : path.join("/home/"+username.trim()+"/Workspace/eaatsm3/monkey","monkey.html"),
      protocol : "file:",
      slashes : true
    }));
@@ -38,7 +47,7 @@ $(document).ready(function(){
     winmonkey = new BrowserWindow();
     winmonkey.maximize();
    winmonkey.loadURL(url.format({
-     pathname : path.join("/home/mounik/Workspace/eaatsm3/MTBF","mtbf.html"),
+     pathname : path.join("/home/"+username.trim()+"/Workspace/eaatsm3/MTBF","mtbf.html"),
      protocol : "file:",
      slashes : true
    }));
